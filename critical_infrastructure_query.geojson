@@ -1,0 +1,70 @@
+{
+    "Critical Infrastructures (Flooding Impact on Wellness)": {
+      "Healthcare": [
+        {"type": "amenity", "value": "clinic", "description": "A medium-sized medical facility or health centre."},
+        {"type": "amenity", "value": "hospital", "description": "A hospital providing in-patient medical treatment."},
+        {"type": "amenity", "value": "pharmacy", "description": "A shop where a pharmacist sells medications"},
+        {"type": "amenity", "value": "doctors", "description": "A doctor's practice / surgery."},
+        {"type": "building", "value": "hospital", "description": "A building erected for a hospital."},
+        {"type": "healthcare", "value": "birthing_centre", "description": "A non-clinical birthing centre operated by midwives."},
+        {"type": "healthcare", "value": "blood_bank", "description": "Blood bank"},
+        {"type": "healthcare", "value": "blood_donation", "description": "A facility where you can donate blood, plasma and/or platelets."},
+        {"type": "healthcare", "value": "dialysis", "description": "A clinic for day patients to get a haemodialysis"},
+        {"type": "healthcare", "value": "hospice", "description": "A Hospice which provides palliative care to terminal ill people and support to their relatives."},
+        {"type": "healthcare", "value": "laboratory", "description": "Medical laboratory also called (analytical, diagnostic) is a place that analyses body fluids such as blood, urine, faeces etc."},
+        {"type": "healthcare", "value": "midwife", "description": "A Midwife, a health professional who cares for mothers and newborns around childbirth."},
+        {"type": "healthcare", "value": "nurse", "description": "Nursing. A facility where some nurses may receive their patients."},
+        {"type": "healthcare", "value": "sample_collection", "description": "Site or dedicated healthcare facility where samples of blood/urine/etc are obtained or collected for purpose of analysing them for healthcare diagnostics."},
+        {"type": "healthcare", "value": "vaccination_centre", "description": "a healthcare facility specifically dedicated to administering vaccinations to individuals, to provide immunisation against infectious diseases."}
+      ],
+      "Emergency Services": [
+          {"type": "amenity", "value": "fire_station", "description": "A station of a fire brigade"},
+          {"type": "amenity", "value": "police", "description": "A police station where police officers patrol from and that is a first point of contact for civilians"},
+          {"type": "building", "value": "fire_station", "description": "A building constructed as fire station, i.e. to house fire fighting equipment and officers, regardless of current use."},
+          {"type": "building", "value": "police", "description": "A police station."},
+          {"type": "emergency", "value": "ambulance_station", "description": "An ambulance station is a structure or other area set aside for storage of ambulance vehicles, medical equipment, personal protective equipment, and other medical supplies."},
+          {"type": "emergency", "value": "assembly_point", "description": "A designated (safe) place where people can gather or must report to during an emergency or a fire drill."},
+          {"type": "emergency", "value": "phone", "description": "Emergency telephone"}
+      ],
+      "Shelter and Facilities": [
+        {"type": "amenity", "value": "shelter", "description": "A small shelter against bad weather conditions."},
+        {"type": "amenity", "value": "toilets", "description": "Public toilets (might require a fee)"},
+        {"type": "amenity", "value": "drinking_water", "description": "Drinking water is a place where humans can obtain potable water for consumption."},
+        {"type": "amenity", "value": "water_point", "description": "Place where you can get large amounts of drinking water"},
+        {"type": "amenity", "value": "refugee_site", "description": "A human settlement sheltering refugees or internally displaced persons"},
+        {"type": "building", "value": "civic", "description": "A generic tag for a building created to house some civic amenity, for example amenity=community_centre, amenity library, amenity toilets, leisure=sports_centre, leisure swimming_pool, amenity townhall etc."},
+        {"type": "building", "value": "toilets", "description": "A toilet block."}
+      ],
+      "Transportation": [
+        {"type": "highway", "value": "residential", "description": "Roads which serve as an access to housing, without function of connecting settlements."},
+        {"type": "highway", "value": "service", "description": "For access roads to, or within an industrial estate, camp site, business park, car park, alleys, etc."},
+        {"type": "highway", "value": "footway", "description": "For designated footpaths; i.e., mainly/exclusively for pedestrians."},
+        {"type": "highway", "value": "bridge", "description": "The outline of a bridge, grouping together all features for that bridge."},
+        {"type": "building", "value": "transportation", "description": "A building related to public transport."},
+        {"type": "waterway", "value": "canal", "description": "An artificial open flow waterway used to carry useful water for transportation, waterpower, or irrigation."},
+        {"type": "waterway", "value": "drain", "description": "An artificial free flow waterway used for carrying superfluous water, usually lined with concrete."},
+        {"type": "waterway", "value": "ditch", "description": "A small artificial drainage waterway, usually unlined."},
+        {"type": "waterway", "value": "dam", "description": "A barrier built across a river or stream to block and regulate the flow of the river."},
+         {"type": "waterway", "value": "weir", "description": "A barrier built across a river to control water speed and depth."},
+         {"type": "waterway", "value": "lock", "description": "Water area of the lock chamber."}
+      ],
+      "Utilities": [
+        {"type": "amenity", "value": "waste_disposal", "description": "A medium or large disposal bin, typically for bagged up household or industrial waste."},
+        {"type": "amenity", "value": "waste_transfer_station", "description": "A waste transfer station is a location that accepts, consolidates and transfers waste in bulk."},
+        {"type": "man_made", "value": "wastewater_plant", "description": "A wastewater plant is a facility used to treat wastewater."},
+        {"type": "man_made", "value": "water_tower", "description": "Structure with a water tank at an altitude to increase pressure in water network"},
+        {"type": "man_made", "value": "water_well", "description": "A structural facility to access ground water, created by digging or drilling."},
+        {"type": "man_made", "value": "water_works", "description": "A facility where water is treated to make it suitable for human consumption."},
+        {"type": "power", "value": "line", "description": "High-voltage power lines used for power transmission, usually supported by towers or pylons"},
+        {"type": "power", "value": "minor_line", "description": "Minor power lines forming the distribution grid, usually carried by poles."},
+        {"type": "power", "value": "plant", "description": "An industrial facility where power (electricity, useful heat, biogas) is produced by individual power generator units."},
+        {"type": "power", "value": "substation", "description": "A facility which controls the flow of electricity in a power network with transformers, switchgear or compensators."},
+        {"type": "telecom", "value": "exchange", "description": "A place to connect landlines subscribers to telecommunication service equipments"},
+        {"type": "telecom", "value": "connection_point", "description": "Last point of telecom local loops allowing direct connections towards a few households and subscribers"},
+        {"type": "telecom", "value": "distribution_point", "description": "Equipment, often small boxes, allowing to directly connect up to 15 individuals or households to a single upstream local loop cable towards telecom exchanges"},
+        {"type": "telecom", "value": "service_device", "description": "Active equipment which deliver service to connected customers."},
+        {"type": "telecom", "value": "data_center", "description": "A building used to house computers and network equipment."},
+        {"type": "telecom", "value": "line", "description": "A telecommunication line."}
+      ]
+    }
+  }
