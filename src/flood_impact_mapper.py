@@ -56,7 +56,7 @@ class FloodImpactMapper:
         
         # Define colors for flood categories
         self.flood_colors = {
-            0: "#FFFFFF",  # White for no flood
+            0: "#D3D3D3",  # Gray for no flood
             1: "#FFC8C8",  # Light red
             2: "#FF8080",  # Medium red
             3: "#FF0000",  # Dark red
@@ -158,7 +158,7 @@ class FloodImpactMapper:
         try:
             # Get road network within the bounds - updated for OSMnx 2.0.3
             bbox = (self.west, self.south, self.east, self.north)
-            self.road_network = ox.graph.graph_from_bbox(bbox, network_type='drive')
+            self.road_network = ox.graph.graph_from_bbox(bbox, network_type='all')
             
             # Convert to GeoDataFrame
             nodes, edges = ox.graph_to_gdfs(self.road_network)
@@ -467,7 +467,8 @@ class FloodImpactMapper:
                 legend=True,
                 markersize=50,
                 categorical=True,
-                legend_kwds={'title': 'Flood Category'}
+                legend_kwds={'title': 'Flood Category'},
+                zorder=10,
             )
             
             # Set title and labels
@@ -498,7 +499,8 @@ class FloodImpactMapper:
                 legend=True,
                 linewidth=1.5,
                 categorical=True,
-                legend_kwds={'title': 'Flood Category'}
+                legend_kwds={'title': 'Flood Category'},
+                zorder=2,
             )
             
             # Set title and labels
@@ -659,10 +661,17 @@ class FloodImpactMapper:
         
         # Plot roads with flood impacts
         if hasattr(self, 'road_gdf') and not self.road_gdf.empty:
-            # Filter to only show flooded roads
+            # Plot all roads first in gray
+            self.road_gdf.plot(
+                ax=ax,
+                color=self.flood_colors[0],  # Gray for no flood
+                linewidth=1.5,
+                zorder=1
+            )
+            
+            # Then plot flooded roads by category
             flooded_roads = self.road_gdf[self.road_gdf.flood_category > 0]
             if not flooded_roads.empty:
-                # Plot roads by flood category
                 for cat in range(1, 5):
                     cat_roads = flooded_roads[flooded_roads.flood_category == cat]
                     if not cat_roads.empty:
@@ -671,7 +680,7 @@ class FloodImpactMapper:
                             ax=ax,
                             color=color,
                             linewidth=1.5,
-                            label=f"Roads - {self.flood_categories[cat]}"
+                            zorder=2
                         )
         
         # Plot infrastructure with proper markers
@@ -690,13 +699,14 @@ class FloodImpactMapper:
                     # Plot all points for this category with the same marker
                     category_points.plot(
                         ax=ax,
-                        color='black',  # Base color, will be modified by flood category
+                        color=self.flood_colors[0],  # Gray for no flood
                         **base_style,
-                        label=category
+                        label=category,
+                        zorder=3
                     )
                     
                     # Now plot each flood category with different colors
-                    for cat in range(5):  # Include category 0 (no flood)
+                    for cat in range(1, 5):  # Start from 1 to skip no flood
                         cat_points = category_points[category_points.flood_category == cat]
                         if not cat_points.empty:
                             color = self.flood_colors[cat]
@@ -704,7 +714,7 @@ class FloodImpactMapper:
                                 ax=ax,
                                 color=color,
                                 **base_style,
-                                label=f"{category} - {self.flood_categories[cat]}"
+                                zorder=4
                             )
         
         # Add gridlines
@@ -721,27 +731,27 @@ class FloodImpactMapper:
         
         # Second legend for flood categories
         handles2, labels2 = [], []
-        for cat in range(1, 5):  # Skip category 0 (no flood)
+        for cat in range(5):  # Include category 0 (no flood)
             color = self.flood_colors[cat]
             handles2.append(plt.Rectangle((0, 0), 1, 1, color=color))
             labels2.append(self.flood_categories[cat])
         
         # Add the legends
         legend1 = ax.legend(handles1, labels1, 
-                          title="Infrastructure Categories",
                           loc='upper right',
-                          frameon=True,
-                          framealpha=0.9)
+                          frameon=False,
+                          framealpha=0.9,
+                          ncol=5)
         
         # Add the first legend to the axes
         ax.add_artist(legend1)
         
         # Add the second legend
         ax.legend(handles2, labels2,
-                 title="Flood Severity",
                  loc='lower right',
-                 frameon=True,
-                 framealpha=0.9)
+                 frameon=False,
+                 framealpha=0.9,
+                 ncol=5)
         
         # Adjust layout and save
         plt.tight_layout()

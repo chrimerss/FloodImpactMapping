@@ -1,4 +1,7 @@
 output/
+FEMA_Damage_Assessments_shapefiles/
+FEMA_Harvey2017_Claims_shp/
+*.zip
 data/
 cache/
 # Byte-compiled / optimized / DLL files
